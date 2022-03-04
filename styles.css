@@ -1,0 +1,86 @@
+
+body {
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: stretch; */
+}
+
+p {
+    font-size: 24px;
+    font-weight: 800;
+    color: rgb(84, 143, 84);
+}
+
+#start {
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(253, 235, 201);
+    border: 1px solid black;
+}
+#btn-start {
+    height: 30px;
+    color: black;
+    font-size: 20px;
+    font-weight: 800;
+    background-color: yellow;
+    border: 4px solid blue;
+}
+
+#header {
+    height: 60px;
+
+    display: grid;
+    grid-template-areas: "player1 player2";
+
+    /* border: 1px solid blue; */
+}
+
+.player {
+    display: flex;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+
+    border: 1px solid black;
+}
+
+.div-player {
+    flex: 3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+}
+.btn-player {
+    flex: 1;
+
+    margin: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+#board {
+    flex: 1;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "c11 c12 c13"
+                         "c21 c22 c23"
+                         "c31 c32 c33";
+}
+.cell {
+    border: 1px solid blue;
+    font-size: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
