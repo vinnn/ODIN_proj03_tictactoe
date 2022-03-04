@@ -14,24 +14,25 @@
     
 <div id="start">
     <p>TIC-TAC-TOE</p>
-    <button id="btn-start">START NEW GAME</button>
+    <button class="btn-startstop btn-start">START NEW GAME</button>
     <p>TIC-TAC-TOE</p>
 </div>    
 
 <div id="header">
 
     <div class="player">
-        <div class="div-player div-player1"></div>
-        <button class="btn-player btn-player1">CHANGE NAME</button>
+        <button class="btn-player btn-player1" data="1">CHANGE NAME</button>
+        <div class="divinput-player div-player1">Player 1</div>
+        <input class="divinput-player input-player input-player1" placeholder="Player 1">
+        <div class="div-symbol div-symbol1">: O</div>    
     </div>   
     <div class="player">
-        <div class="div-player div-player2"></div>
-        <button class="btn-player btn-player2">CHANGE NAME</button>
+        <div class="div-symbol div-symbol2">X :</div>
+        <div class="divinput-player div-player2">Player 2</div>
+        <input class="divinput-player input-player input-player2" placeholder="Player 2">
+        <button class="btn-player btn-player2" data="2">CHANGE NAME</button>
     </div>  
 
-<!-- 
-    <div class="player player1"></div>   
-    <div class="player player2"></div>    -->
 </div>
 
 
@@ -51,7 +52,7 @@
 
 
 
-
+<div id="div-result"></div>
 
 
 

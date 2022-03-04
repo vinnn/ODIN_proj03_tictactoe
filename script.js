@@ -1,4 +1,10 @@
 
+function loadGame() {
+    listenChangeNames();
+    startGame();
+}
+loadGame();
+
 // ####################################################
 // ####################################################
 // gameBoard object
@@ -34,6 +40,12 @@ const gameBoard = function() {
         let i = 0;
         cells.forEach( (c) => {
             c.textContent = board_array[i];
+            if (c.textContent == "") {
+                c.setAttribute("played", "false"); // for hover effect
+            } else {
+                c.setAttribute("played", "true"); // for hover effect
+            }
+
             i++;
         })
     }
@@ -86,14 +98,18 @@ const playerActions = {
         return this.playing;
     }, 
     render() {
-        // const div_player = document.getElementById("div-player" + this.id);
         const div_player = document.querySelector(".div-player" + this.id);
+        const div_symbol = document.querySelector(".div-symbol" + this.id);
         let symb = (this.id==1)? "O" : "X";
-        div_player.textContent = this.name + "  (" + symb + ")";
+
         if (this.playing) {
-            div_player.style = "background-color: white";
+            div_player.textContent = this.name + " Playing"; 
+            div_player.style = "background-color: yellow";
+            div_symbol.style = "background-color: yellow";
         } else {
-            div_player.style = "background-color: grey";
+            div_player.textContent = this.name + " Waiting..."; 
+            div_player.style = "background-color: rgb(90, 87, 87)";
+            div_symbol.style = "background-color: rgb(90, 87, 87)";
         }
     }
 }
@@ -117,11 +133,14 @@ function createPlayer(name, id, playing) {
 function game() {
     // general variables
     const cells = document.querySelectorAll(".cell");
+    const player1_name = document.querySelector(".div-player1").textContent;
+    const player2_name = document.querySelector(".div-player2").textContent;
 
     // initialize board and players:
     gameBoard.initialize(); // this initializes the board stored in gameBoard (ie board not public)
-    let player1 = createPlayer("Bob", 1, true); // name, id=1, currentPlayer=true
-    let player2 = createPlayer("Jil", 2, false); // name, id=2, currentPlayer=false
+
+    let player1 = createPlayer(player1_name, 1, true); // name, id=1, currentPlayer=true
+    let player2 = createPlayer(player2_name, 2, false); // name, id=2, currentPlayer=false
 
     // display board and players:
     gameBoard.render();
@@ -146,12 +165,16 @@ function game() {
             }
             // if the game is finished with winner
             if (gameBoard.win() == true) {
-                console.log(currentPlayer.name + " wins!");
+                const div_result = document.getElementById("div-result");
+                div_result.style.display = "block";
+                div_result.textContent = currentPlayer.name + " wins!";
             }
 
             // if the game is finished with tie
             if (gameBoard.finished() == true) {
-                console.log("finished (tie)");
+                const div_result = document.getElementById("div-result");
+                div_result.style.display = "block";
+                div_result.textContent = "Tie!";
             }
 
             // change current player:
@@ -165,6 +188,74 @@ function game() {
     )
 }
 
-game();
+
+
+
+
+
+// ####################################################
+// ####################################################
+// Starting the Game
+// - listen to start button
+// ####################################################
+// ####################################################
+function startGame() {
+    const btn_startstop = document.querySelector(".btn-startstop");
+    // const btn_stop = document.querySelector(".btn-stop");
+    const btns_player = document.querySelectorAll(".btn-player");
+
+    btn_startstop.onclick = () => {
+
+        // if START
+        if (btn_startstop.textContent == "START NEW GAME") {
+
+            // hide change name buttons
+            btns_player.forEach( (btn) => {btn.hidden = true});
+            // change the button to stop button
+            btn_startstop.textContent = "STOP THE GAME";
+            // start the game
+            game();
+
+        }
+        // if STOP
+        else {
+            // loadGame();
+            location.reload();
+        }
+    }
+}
+
+// ####################################################
+// ####################################################
+// Changing the player names
+// ####################################################
+// ####################################################
+function listenChangeNames() {
+    const btns_change_name = document.querySelectorAll(".btn-player");
+
+    btns_change_name.forEach( (btn) => {
+        btn.onclick = (e) => {
+
+            let ip = e.target.attributes[1].value;
+            const div_plyi = document.querySelector(".div-player" + ip);
+            const inp_plyi = document.querySelector(".input-player" + ip);
+            const btn_plyi = document.querySelector(".btn-player" + ip);
+
+            // if CHANGE NAME
+            if (btn.textContent == "CHANGE NAME") {
+                div_plyi.style.display = "none";
+                inp_plyi.style.display = "block";
+                btn_plyi.textContent = "SUBMIT NAME";
+            }
+            // if SUBMIT NEW NAME
+            else {
+                div_plyi.textContent = inp_plyi.value;
+                div_plyi.style.display = "block";
+                inp_plyi.style.display = "none";
+                btn_plyi.textContent = "CHANGE NAME";
+            }
+        }
+    })
+}
 
 
