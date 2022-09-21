@@ -1,4 +1,3 @@
-
 function loadGame() {
     listenChangeNames();
     startGame();
@@ -45,7 +44,6 @@ const gameBoard = function() {
             } else {
                 c.setAttribute("played", "true"); // for hover effect
             }
-
             i++;
         })
     }
@@ -187,10 +185,6 @@ function game() {
         }
     )
 }
-
-
-
-
 
 
 // ####################################################

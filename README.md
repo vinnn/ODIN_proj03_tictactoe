@@ -1,17 +1,22 @@
-# TIC-TAC-TOE APP
+# ODIN_tictactoe
 
+## Motivation
+This project is to practice the concepts learned in the Odin Project - Full Stack Javascript - Javascript lessons.
+- Javascript, Factory functions, Module pattern
 
-### Background
-Course project: 
-- Course Provider: ODIN Project
-- Course: Javascript Full Stack Web Development 
-- Section: Javascript
+## Concepts covered
+- HTML5, CSS, Javascript
+- Git/Github
 
-### Link to the application:
+## View page
 https://vinnn.github.io/ODIN_tictactoe/
 
+## Thank you
+Thank you the Odin Project
+and to the very helpful providers of internet resources 
 
-### Thank you
-I would like to thank the Odin Project
-and thank you all providers of internet resources that I managed to access and learn from. 
+
+
+
+
 

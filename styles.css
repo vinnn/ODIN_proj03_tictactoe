@@ -1,10 +1,9 @@
-
 body {
     height: 98vh;
     display: flex;
-    flex-direction: column;
-
     background-color: black;
+
+    flex-direction: column;
 }
 
 p {
@@ -36,7 +35,6 @@ p {
     border: 4px solid red;
 }
 
-
 #header {
     height: 60px;
 
@@ -44,7 +42,6 @@ p {
     grid-template-areas: "player1 player2";
     grid-template-columns: 1fr 1fr;
 }
-
 .player {
     background-color: white;
     border: 1px solid black;
@@ -52,7 +49,6 @@ p {
     display: flex;
     align-items: center;
 }
-
 .divinput-player {
     flex: 1;
     font-size: 28px;
@@ -67,7 +63,6 @@ p {
     display: none;
     font-size: 24px;
 }
-
 .btn-player {
     height: 40px;
     width: 80px;
@@ -84,8 +79,6 @@ p {
     background-color: black;
     border: 3px solid red;
 }
-
-
 .div-symbol {
     height: 40px;
     width:80px;
@@ -122,14 +115,9 @@ p {
     background-color: rgb(253, 253, 169);
 }
 
-
-
-
-
 #div-result {
-
     display: none;
-
+    
     position: fixed;
     top: 110px;
     left: 0px;
@@ -143,6 +131,4 @@ p {
 
     text-align: center;
     text-justify: center;
-
-
 }
