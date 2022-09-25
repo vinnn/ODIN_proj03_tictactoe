@@ -9,7 +9,7 @@ This project is to practice the concepts learned in the Odin Project - Full Stac
 - Git/Github
 
 ## View page
-https://vinnn.github.io/ODIN_tictactoe/
+https://vinnn.github.io/ODIN_proj03_tictactoe/
 
 ## Thank you
 Thank you the Odin Project
